@@ -1,4 +1,5 @@
-import { useState } from "react"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import NotificationButton from '../notificationbutton'
@@ -10,6 +11,13 @@ function SalesCard() {
     const max = new Date();
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/sales")
+        .then(response => {
+            console.log(response.data);
+        });
+    }, []);
 
     return (
         <div className="dsmeta-card">
@@ -51,7 +59,7 @@ function SalesCard() {
                             <th className="show992">R$ 500</th>
                             <th className="show992">#341</th>
                             <td className="show576">11/07/2022</td>
-                            <td>Orlen</td>
+                            <td>Anakin</td>
                             <th className="show992">15</th>
                             <th className="show992">11</th>
                             <td>R$ 55300</td>
@@ -67,7 +75,7 @@ function SalesCard() {
                             <th className="show992">R$ 500</th>
                             <th className="show992">#342</th>
                             <td className="show576">11/07/2022</td>
-                            <td>Carlos</td>
+                            <td>Anakin</td>
                             <th className="show992">15</th>
                             <th className="show992">11</th>
                             <td>R$ 55300</td>
@@ -83,7 +91,7 @@ function SalesCard() {
                             <th className="show992">R$ 500</th>
                             <th className="show992">#343</th>
                             <td className="show576">11/07/2022</td>
-                            <td>Lucas</td>
+                            <td>Anakin</td>
                             <th className="show992">15</th>
                             <th className="show992">11</th>
                             <td>R$ 55300</td>
